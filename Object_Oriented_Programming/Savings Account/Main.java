@@ -38,10 +38,12 @@ public class Main {
         System.out.println("Deposited " + String.format("%.2f", s.getDeposit()) + " new balance is " + String.format("%.2f", s.deposit(s.getUpdatedBal())));
         
         //Withdrawed 0.00 new balance is 2000.00
-        System.out.println("Withdrawed " + String.format("%.2f", s.getWithdraw()) + " new balance is " + String.format("%.2f", s.withdraw(s.getUpdatedBal())));
-        
-        //New balance after interest rate is applied 2006.67
-        System.out.println("New balance after interest rate is applied " + String.format("%.2f", s.calculateAnnualInterest(s.getUpdatedBal())));
-        
+        if(s.getWithdraw() > s.getUpdatedBal()) {
+            System.out.println("Insufficient Funds, try withdrawing a lesser amount.");
+        } else {
+            System.out.println("Withdrawed " + String.format("%.2f", s.getWithdraw()) + " new balance is " + String.format("%.2f", s.withdraw(s.getUpdatedBal())));
+            //New balance after interest rate is applied 2006.67
+            System.out.println("New balance after interest rate is applied " + String.format("%.2f", s.calculateAnnualInterest(s.getUpdatedBal())));
+        }
     }  
 }
