@@ -98,7 +98,12 @@ public class SavingsAccount {
     public double withdraw(double withdrawAmount) {
         if(withdraw < updatedBal) {
             updatedBal = updatedBal - withdraw;
-        } else {
+        } 
+        return updatedBal;
+    }
+    
+    public double failedWithdraw(double fail) {
+        if(withdraw > updatedBal) {
             System.out.println("Insufficient Funds");
         }
         return updatedBal;
